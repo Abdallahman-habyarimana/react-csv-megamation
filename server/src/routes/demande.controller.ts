@@ -1,9 +1,8 @@
 import { Request, Response} from 'express'
+import demandes from '../models/demande.model'
 
-function getAllRequestedWorks(req: Request , res: Response) {
-    return res.status(200).json([{
-        name: 'abdallah'
-    }])
+function getAllRequestedWorks(_req: Request , res: Response) {
+    return res.status(200).send(demandes)
 }
 
 export {
