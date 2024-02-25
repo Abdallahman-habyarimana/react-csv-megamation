@@ -1,11 +1,21 @@
 import express from 'express'
 import cors from 'cors';
-import app from './app'
+import app from './app';
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import connectToDb from './db';
 
 const PORT = process.env.PORT || 8000
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
+dotenv.config()
 
-app.listen(PORT, () => console.log('Server started+++'))
+
+async function startServer() {
+    app.listen(PORT, () => console.log('Server started+++'))
+    await connectToDb()
+}
+
+startServer()
+
+
+
