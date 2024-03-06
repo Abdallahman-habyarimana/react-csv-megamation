@@ -1,9 +1,13 @@
 import { Request, Response} from 'express'
-import { getAllUsers } from '../models/user.model'
+import { addNewUser, getAllUsers } from '../models/user.model'
 
 
 async function httpGetAllUsers(_req: Request , res: Response) {
     return res.status(200).json(await getAllUsers())
+}
+
+async function httpAddNewUser(req: Request , res: Response) {
+    return res.status(201).send(await addNewUser(req.body))
 }
 
 
@@ -11,5 +15,6 @@ async function httpGetAllUsers(_req: Request , res: Response) {
 
 
 export {
-    httpGetAllUsers
+    httpGetAllUsers,
+    httpAddNewUser
 }

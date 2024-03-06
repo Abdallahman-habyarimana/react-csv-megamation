@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
 export interface UserDto {
+    _id?: string;
     name: string;
     school: string;
     role: string;
