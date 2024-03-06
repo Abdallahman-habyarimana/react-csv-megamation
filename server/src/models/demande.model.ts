@@ -1,15 +1,32 @@
-class Demande {
-    constructor(public id: number, public description: string, public isCompleted: boolean) {}
+
+import DemandeModel, { DemandeDto } from "./demande.mongo"
+
+async function getAllRequestedWorks() {
+    return await DemandeModel.find({})
 }
 
-const demandes: Demande[] = [
-    {
-        id: 1, 
-        description: 'plumbing dans le toilete de fille' ,
-        isCompleted: false
-    },
-]
+async function getRequestedWork(id: string) {
+    return await DemandeModel.findById({ _id: id})
+}
+
+async function addNewRequest(demande: DemandeDto) {
+    const newDemande = new DemandeModel({
+        title: demande.title,
+        building: 'DUTCH',
+        status: 'I',
+        submittedBy: 'Vincent',
+    })
+
+    await newDemande.save()
+
+    return newDemande
+    
+}
 
 
-export default demandes
+export {
+    getAllRequestedWorks,
+    getRequestedWork,
+    addNewRequest
+}
 

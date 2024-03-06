@@ -1,16 +1,24 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { Routes, Route} from 'react-router-dom'
+import { Box, Spinner } from '@chakra-ui/react'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Work from './pages/Work'
+import Navbar from './components/Navbar'
+import useWorkOrder from './hooks/useWorkOrder'
+import WorkOrderDetails from './pages/WorkOrderDetails'
+import AddNewWork from './components/AddNewWork'
+
 
 const App = () => {
-  const [demandes, setDemandes] = useState([])
-  useEffect(() => {
-    const response = axios.get('http://localhost:8000/demandes').then((res) => console.log(res))
-    console.log(response);
-  }, [])
+  const { isLoading } = useWorkOrder()
   return (
-    <div>
-      hello world
-    </div>
+
+    <Routes>
+      <Route index path="/" element={<Home />} />
+      <Route path="demandes/:id" element={<WorkOrderDetails />} />
+      <Route path="nouveau" element={<AddNewWork />} />
+    </Routes>
+    
   )
 }
 

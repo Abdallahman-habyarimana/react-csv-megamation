@@ -1,9 +1,11 @@
 
 import express from 'express'
-import { getAllRequestedWorks } from './demande.controller';
+import {  httpAddNewRequest, httpGetAllRequestedWorks, httpGetRequestedWork } from './demande.controller';
 
 const demandeRouter = express.Router();
 
-demandeRouter.get('/demandes', getAllRequestedWorks)
+demandeRouter.get('/demandes', httpGetAllRequestedWorks);
+demandeRouter.post('/demandes', httpAddNewRequest);
+demandeRouter.get('/demandes/:id', httpGetRequestedWork);
 
 export default demandeRouter

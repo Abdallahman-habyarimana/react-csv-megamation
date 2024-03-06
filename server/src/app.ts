@@ -15,6 +15,6 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.send('hello world')
 })
-app.use(demandeRouter)
+app.use('/v1', demandeRouter)
 
 export default app
