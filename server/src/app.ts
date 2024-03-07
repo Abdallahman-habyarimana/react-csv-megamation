@@ -1,8 +1,8 @@
 import express from 'express'
 import cors from 'cors';
-import demandeRouter from './routes/demande.router';
+import demandeRouter from './routes/demandes/demande.router';
 import morgan from 'morgan'
-import userRouter from './routes/users.router';
+import userRouter from './routes/users/users.router';
 
 const app = express()
 

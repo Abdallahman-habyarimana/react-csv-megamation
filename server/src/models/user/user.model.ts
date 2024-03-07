@@ -1,6 +1,6 @@
 
 
-import users from "../data"
+import users from "../../data"
 import UserModel, { UserDto } from "./user.mongo"
 
 async function getAllUsers() {

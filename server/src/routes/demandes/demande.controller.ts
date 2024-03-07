@@ -1,6 +1,6 @@
 import { Request, Response} from 'express'
-import { addNewRequest, getAllRequestedWorks, getRequestedWork } from '../models/demande.model'
-import { DemandeDto } from '../models/demande.mongo'
+import { addNewRequest, getAllRequestedWorks, getRequestedWork } from '../../models/demande/demande.model'
+import { DemandeDto } from '../../models/demande/demande.mongo'
 
 async function httpGetAllRequestedWorks(_req: Request , res: Response) {
     return res.status(200).json(await getAllRequestedWorks())

@@ -1,5 +1,5 @@
 import { Request, Response} from 'express'
-import { addNewUser, getAllUsers } from '../models/user.model'
+import { addNewUser, getAllUsers } from '../../models/user/user.model'
 
 
 async function httpGetAllUsers(_req: Request , res: Response) {
